@@ -14,6 +14,7 @@ import ctranslate2
 import numpy as np
 import tokenizers
 
+from dataclasses_json import dataclass_json
 from tqdm import tqdm
 
 from faster_whisper.audio import decode_audio, pad_or_trim
@@ -29,6 +30,7 @@ from faster_whisper.vad import (
 )
 
 
+@dataclass_json
 @dataclass
 class Word:
     start: float
@@ -45,6 +47,7 @@ class Word:
         return asdict(self)
 
 
+@dataclass_json
 @dataclass
 class Segment:
     id: int
